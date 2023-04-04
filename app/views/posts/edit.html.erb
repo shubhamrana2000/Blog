@@ -1,0 +1,32 @@
+<style>
+  .alp{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  }
+  .hd{text-shadow: 3px 3px 3px #ababab;}
+  img.post-image{
+    width:250px;
+    margin-bottom:1rem;
+    margin-top:0;
+  }
+</style>
+
+
+<div class="container py-3 h-100 ,style="border-radius: 1rem;>
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-light text-black">
+          <div class="card-body px-5 pt-0 text-center alp" style="border-radius: 5px" >
+
+            <div class="md-5 mt-md-4">
+              <h1 style="text-align: center;" class="my-3 hd">Editing post</h1>    
+              <%= render "form", post: @post %>
+              
+              <div class="d-flex">
+              <%= link_to "Show this post", @post , class:"btn btn-primary form-control my-3 mx-2"%> 
+              <%= link_to "Back to posts", posts_path , class:"btn btn-dark form-control my-3"%>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

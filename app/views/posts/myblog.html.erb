@@ -1,0 +1,55 @@
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 22px;
+/*    padding: 10px;*/
+    background: transparent;
+  } 
+        
+.item {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding-bottom: 20px;
+/*  font-size: 14px;*/
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.item:hover{
+  transform: scale(1.05);
+  transition: all linear 0.2s;
+}
+  img.post-image{
+    height:300px;
+    border-radius: 10px;
+  }
+  .show_post_button{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+  .hd{
+    text-shadow: ;text-shadow: 3px 3px 3px #ababab;
+  }
+@media (max-width: 992px) {
+    .container {  grid-template-columns: auto;}
+}   
+</style>
+
+
+<h1 style="text-align: center;" class="my-3 hd">My Blogs</h1>
+<div id="posts" class="container mb-4">
+  <% @posts.each do |post| %>
+    <div class="card item" >
+      <div style="display:flex;justifycontent:flex-end;position: absolute;right: 0; ">
+        <span class="mail badge rounded-pill bg-danger"><strong>Posted by : </strong><%= post.user.email %></span>
+      </div>
+      <% if post.postimage.url.present? %>
+        <%= image_tag post.postimage.url ,class:"post-image"%>
+      <% end %>
+      <div id="<%= dom_id post %> " class="card-body">
+        <h5 class="card-title"><%= post.title %></h5>
+        <p class="card-text"><%= truncate(post.body,:length=>120) %></p>
+        <%= link_to "Show this post", post , class:"btn btn-primary show_post_button"%>
+      </div>
+    </div>
+  <% end %>
+</div>

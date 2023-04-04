@@ -1,0 +1,92 @@
+<style>
+
+.navbar .navbar-nav .nav-link {
+  font-size: 1.1em;
+}
+.navbar .navbar-nav .nav-link:hover {
+  color: #29fd53;
+}
+.navbar .navbar-nav .nav-item {
+  position: relative;
+}
+.navbar .navbar-nav .nav-item::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto; 
+  background-color: #29fd53;
+  width: 0%;
+  content: "";
+  height: 3px;
+  transition: all 0.5s;
+  border-radius: 5px;
+}
+
+.navbar .navbar-nav .nav-item:hover::after {
+  width: 80%;
+}
+
+.nav-link.active{
+  color:white;
+}
+
+.navbar .navbar-nav .nav-item{
+  text-align: center;
+}
+
+.nav-link{
+  color:black;
+}
+
+.navbar-brand{
+  text-shadow: 3px 3px 3px #ababab;
+}
+
+.navbar-brand {
+  font-size: 1.75rem;
+  letter-spacing: 3px;
+}
+
+
+@media (max-width:981px){
+  .navbar .navbar-nav .nav-item:hover::after {
+    width:20%;
+  }
+}
+</style> 
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light stnav">
+  <div class="container-fluid">
+    <i class="fa-sharp fa-solid fa-blog" style="color:var(--main-color);font-size: 1.75rem;padding-right: 5px;"></i>
+    <%= link_to "Rails Blog",root_path,class:"navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+        
+
+
+          <!-- <li class="nav-item">
+          <%= link_to "Home",root_path,class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "About",about_path,class:"nav-link" %>
+        </li> -->
+
+
+
+        <li class="nav-item">
+          <%= link_to "Home",root_path,class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "My Blogs",myblog_path,class:"nav-link" %>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <%= render 'user/session_manager' %>
+      </ul>
+    </div>
+  </div>
+</nav>

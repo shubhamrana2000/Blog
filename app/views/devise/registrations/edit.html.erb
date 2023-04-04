@@ -1,0 +1,63 @@
+<style>
+  h2{text-shadow: 3px 3px 3px #ababab;}
+
+  .MAIN_C{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 10px;
+    padding-bottom: 2em;
+  }
+
+</style>
+
+
+<%= render "devise/shared/error_messages", resource: resource %>
+<div class="container py-3 h-100 ">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-light text-black MAIN_C" style="border-radius: 1rem;">
+          <div class="card-body px-5 pt-0 text-center">
+
+            <div class="md-5 mt-md-4">
+
+              <h2 style="text-align: center;" class="my-5">Edit <%= resource_name.to_s.humanize %></h2>
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+                <div class="form-outline form-white mb-4">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"mb-4 form-control" %>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <%= f.label :name %><br />
+                  <%= f.text_field :name ,class:"mb-4 form-control"%>
+                </div>
+
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                <% end %>
+
+                <div class="form-outline form-white mb-4">
+                  <%= f.label :password %> <br />
+                  <%= f.password_field :password, autocomplete: "new-password" ,class:"mb-4 form-control"%>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <%= f.label :password_confirmation %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"mb-4 form-control"%>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <%= f.label :current_password %> <br />
+                  <%= f.password_field :current_password, autocomplete: "current-password" ,class:"mb-4 form-control"%>
+                </div>
+
+                <div class="actions">
+                  <%= f.submit "Update",class:"btn btn-outline-primary btn-lg px-5" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

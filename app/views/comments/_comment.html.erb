@@ -1,0 +1,47 @@
+<style>
+	.comment_item{
+		background: rgba(255, 255, 255, 0.8);
+		border-radius: 10px;
+		box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+	}
+	.edit_btn{
+		box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+	}
+	.delete_btn{
+		box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+	}
+</style>
+
+<div class="comment-<%= comment.id %> comment_item" style="padding: 1em; margin:1em">
+	
+	<%= comment.user.email %><br/>
+
+	<% if(comment.updated_at - comment.created_at)>1 %>
+		<span>Edited <%= time_ago_in_words(comment.updated_at) %> ago </span>
+	<% else %>
+		<span>Posted <%= time_ago_in_words(comment.created_at) %> ago </span>
+	<% end %>
+
+	<% if (current_user == comment.user) || (current_user == @post.user)  %>
+		<div class="btn-group float-end">
+			<%= link_to "Edit",nil, remote: true,class:"btn btn-warning edit_btn",
+			data: {
+				controller: "comments",
+				action: "comments#toggleForm",
+				comments_form_param: "edit-form-#{comment.id}",
+				comments_body_param: "comment-body-#{comment.id}",
+			} %> &nbsp;&nbsp;
+			<%= button_to "Delete", [post,comment],class:"btn btn-danger delete_btn",method: :delete %>
+		</div>
+		<div id="edit-form-<%= comment.id %>" class="d-none">
+			<%= render 'comments/form',
+			post: @post,
+			comment: comment,
+			submit_label:"Update" %>
+		</div>
+	<% end %>
+	<hr/>
+	<div id="comment-body-<%= comment.id %>">
+		<%= comment.body %>
+	</div>
+</div>

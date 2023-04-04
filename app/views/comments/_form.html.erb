@@ -1,0 +1,19 @@
+<style>
+	.richt{
+		opacity:0.8;
+	}	
+	.form-control{
+		box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+	}
+
+</style>
+
+
+<div class="richt container py-2">
+	<%= form_with(model: [post, comment]) do |f| %>
+		<div class="form-control">
+			<%= f.rich_text_area :body %>
+			<%= f.submit submit_label,class:"btn btn-primary mt-1" %>
+		</div>
+	<% end %>
+</div>
