@@ -20,7 +20,8 @@
 }
   img.post-image{
     height:300px;
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
   .show_post_button{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -35,19 +36,19 @@
 
 
 
-<h1 style="text-align: center;" class="my-2 hd">Blogs</h1>
+<h1 style="text-align: center;" class="my-3 hd">Blogs</h1>
 <div class="container mb-4">
   <% @posts.each do |post| %>
     <div class="card item" >
-      <div style="display:flex;justifycontent:flex-end;position: absolute;right: 0; ">
+      <div style="display:flex;justifycontent:flex-end;position: absolute;right: 0;transform: translate(2px ,-8px);">
         <span class="mail badge rounded-pill bg-danger"><strong>Posted by : </strong><%= post.user.email %></span>
       </div>
       <% if post.postimage.url.present? %>
         <%= image_tag post.postimage.url ,class:"post-image"%>
       <% end %>
-      <div id="<%= dom_id post %> " class="card-body">
-        <h5 class="card-title"><%= post.title %></h5>
-        <p class="card-text"><%= truncate(post.body,:length=>120) %>   </p>
+      <div id="<%= dom_id post %> " class="card-body p-1">
+        <h2 class="card-title mt-1 mb-2" style="font-size: 32px;"><%= post.title %></h2>
+        <p class="card-text" style="font-size: 14px;font-family: 'Poppins';"><%= truncate(post.body,:length=>120) %>   </p>
         <%= link_to "Show this post", post , class:"btn btn-primary show_post_button"%>
       </div>
     </div>

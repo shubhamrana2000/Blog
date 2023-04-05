@@ -25,7 +25,7 @@
   </div>
 
   <% if @post.postimage.url.present? %>
-    <%= image_tag @post.postimage.url ,class:"post-image card-image-top"%>
+    <%= image_tag @post.postimage.url ,class:"post-image card-image-top",style:"width:400px;height:400px"%>
   <% end %>
 
   <div class="from-group my-2" >
