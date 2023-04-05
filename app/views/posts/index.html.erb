@@ -48,10 +48,9 @@
         <%= image_tag post.postimage.url ,class:"post-image"%>
       <% end %> -->
 
-      <%# if post.postimageurl.present? %>
-        <%#image_tag 'post.postimageurl',class:"post-image" %>
+      <% if post.postimageurl.present? %>
          <%= image_tag(post.postimageurl, class:"post-image") %>
-      <%# end %>
+      <% end %>
 
       <div id="<%= dom_id post %> " class="card-body p-1">
         <h2 class="card-title mt-1 mb-2" style="font-size: 32px;"><%= post.title %></h2>
