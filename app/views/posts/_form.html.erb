@@ -19,6 +19,9 @@
     <%= form.text_area :body ,placeholder:"Enter something here" ,class:"cfield mb-3 form-control" %>
   </div>
 
+
+<!-- removed it as it was taking more space in web which costs money -->
+<!-- 
   <div class="form-group mb-3">
     <%= form.label :"Upload Image",style:"display:block" %>
     <%= form.file_field :postimage,class:"form-control" %>
@@ -31,6 +34,15 @@
   <div class="from-group my-2" >
     <% if @post.postimage.url.present? %>
       <%= form.check_box :remove_postimage %>  Remove Image
+    <% end %>
+  </div> -->
+
+  <div class="form-group mb-3">
+    <%= form.text_field :postimageurl , placeholder:"Enter image url",class:"mb-3 form-control mt-4" %>
+  </div>
+  <div>
+    <% if post.postimageurl.present? %>
+      <%= image_tag(post.postimageurl, class:"post-image" ,style:"width:200px;") %>
     <% end %>
   </div>
 
