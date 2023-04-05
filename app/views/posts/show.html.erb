@@ -1,6 +1,13 @@
 <style>
   img.post-image{
     height:500px; 
+    width:500px;
+  }
+  .post-image{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
   }
 /*  .comments_section{
     border-radius: 10px;
@@ -24,9 +31,11 @@
 
 <div class="container mt-4">
   <div class="card mb-5 post_body">
-    <% if @post.postimage.url.present? %>
-      <%= image_tag @post.postimage.url ,class:"post-image card-image-top"%>
-    <% end %>
+    <!-- <div class="container d-flex align-items-center"> -->
+      <% if @post.postimage.url.present? %>
+        <%= image_tag @post.postimage.url ,class:"post-image card-image-top align-items-center"%>
+      <% end %>
+    <!-- </div> -->
     <div class="card-body">
       <h5 class="card-title"><%= @post.title %></h5>
       <p class="card-text"><%= @post.body %></p>

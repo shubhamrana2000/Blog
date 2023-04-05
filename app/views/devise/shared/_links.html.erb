@@ -1,11 +1,15 @@
 <%- if controller_name != 'sessions' %>
-  <strong>Have an Acount ?</strong>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <div class="my-2">
+    <strong>Have an Acount ? </strong>
+    <%= link_to "Log in", new_session_path(resource_name) %><br />
+</div>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <strong>Don't have an account?  </strong>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+  <div class="my-2">
+    <strong>Don't have an account ?  </strong>
+    <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+</div>
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
