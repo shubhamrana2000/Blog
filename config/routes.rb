@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   
-  # get 'home', to: "pages#home"
+  get 'home', to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
 
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'about', to: "pages#about"
   get 'myblog', to: "posts#myblog"
 
-  get 'home', to: "posts#index"
+  # get 'root', to: "posts#index"
 
-  root "pages#home"
+  root "posts#index"
 end
