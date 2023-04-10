@@ -28,14 +28,15 @@
 
     <!-- box icons -->
   <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-
   </head>
 
   <body class="bdy">
-    <%= render 'shared/navbar' %>
+      <% unless controller_name=="pages" && action_name=='home' %>
+        <%= render 'shared/navbar' %>
+      <%end%>
     <main>
-      <%= render partial: 'shared/flash' %>
-      <%= yield %>
+        <%= render partial: 'shared/flash' %>
+        <%= yield %>
     </main>
 
   </body>
